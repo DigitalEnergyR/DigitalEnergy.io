@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DigitalEnergy.io - Transforming Energy Systems Through Digital Innovation">
-    <title>DigitalEnergy.io - Digital Energy Solutions</title>
+    <meta name="description" content="DigitalEnergy MCP Gateway - Unified gateway for Oil & Gas digital transformation">
+    <title>DigitalEnergy MCP Gateway</title>
     <style>
         * {
             margin: 0;
@@ -15,322 +15,429 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem;
         }
 
-        header {
+        .header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #667eea;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 80px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
+            border-radius: 12px;
+            padding: 2rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.2s both;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            animation: fadeInUp 1s ease 0.4s both;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #667eea;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .features {
-            background: white;
-            padding: 80px 0;
-        }
-
-        .features h2 {
-            text-align: center;
+        .header h1 {
+            color: #2c3e50;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
+            margin-bottom: 0.5rem;
         }
 
-        .feature-grid {
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+
+        .overview {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .overview p {
+            color: #34495e;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .architecture-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .architecture-section h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .mermaid-container {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 2rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .mermaid {
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            color: #34495e;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .core-features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
         .feature-card h3 {
+            color: #2c3e50;
             margin-bottom: 1rem;
-            color: #667eea;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .about {
-            background: #f8f9fa;
-            padding: 80px 0;
-            text-align: center;
+        .feature-card .icon {
+            font-size: 1.5rem;
         }
 
-        .about h2 {
-            font-size: 2.5rem;
+        .feature-card p {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-card li {
+            color: #34495e;
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-card li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+        }
+
+        .deployment-table {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
             margin-bottom: 2rem;
-            color: #333;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .about p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            color: #666;
+        .deployment-table h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
         }
 
-        footer {
-            background: #2c3e50;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #34495e;
             color: white;
-            text-align: center;
-            padding: 2rem 0;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
         }
 
-        footer a {
-            color: #667eea;
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-blue {
+            background: #3498db;
+            color: white;
+        }
+
+        .badge-green {
+            background: #27ae60;
+            color: white;
+        }
+
+        .badge-orange {
+            background: #e67e22;
+            color: white;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+        }
+
+        .footer a {
+            color: #3498db;
             text-decoration: none;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .container {
+                padding: 1rem;
             }
-            
-            nav ul {
-                display: none;
+
+            .header h1 {
+                font-size: 2rem;
             }
-            
-            .cta-buttons {
-                flex-direction: column;
+
+            .core-features {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">DigitalEnergy.io</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Welcome to DigitalEnergy.io</h1>
-                <p>Transforming Energy Systems Through Digital Innovation</p>
-                <div class="cta-buttons">
-                    <a href="https://github.com/DigitalEnergyR/DigitalEnergy.io" class="btn btn-primary">View on GitHub</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1>🛢️ DigitalEnergy MCP Gateway</h1>
+            <p class="subtitle">Unified Model Context Protocol Gateway for Oil & Gas Digital Transformation</p>
         </div>
-    </section>
 
-    <section class="features" id="features">
-        <div class="container">
-            <h2>Our Solutions</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>Smart Grid Integration</h3>
-                    <p>Advanced digital solutions for modern smart grid systems, enabling efficient energy distribution and management.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔋</div>
-                    <h3>Energy Storage Optimization</h3>
-                    <p>Intelligent algorithms for optimizing energy storage systems and maximizing renewable energy utilization.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Real-time Analytics</h3>
-                    <p>Comprehensive data analytics platform for monitoring and analyzing energy consumption patterns.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌱</div>
-                    <h3>Renewable Integration</h3>
-                    <p>Seamless integration of renewable energy sources into existing power infrastructure.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>AI-Powered Forecasting</h3>
-                    <p>Machine learning models for accurate energy demand prediction and supply optimization.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔐</div>
-                    <h3>Secure Infrastructure</h3>
-                    <p>Robust cybersecurity solutions protecting critical energy infrastructure from digital threats.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About DigitalEnergy.io</h2>
+        <div class="overview">
+            <h2>Overview</h2>
             <p>
-                We are at the forefront of the energy transition, combining cutting-edge digital technologies 
-                with deep energy sector expertise. Our mission is to accelerate the transformation to a 
-                sustainable, efficient, and resilient energy future through innovative digital solutions.
+                The DigitalEnergy MCP Gateway provides a unified interface for AI assistants and agents to interact with 
+                Oil & Gas enterprise systems. Built on the Model Context Protocol (MCP), it enables seamless integration 
+                between LLMs and industrial systems including SCADA, historians, ERP, and production accounting platforms.
             </p>
             <p>
-                From smart grid optimization to renewable energy integration, we provide comprehensive 
-                solutions that help energy providers, utilities, and consumers navigate the complexities 
-                of modern energy systems.
+                <span class="badge badge-blue">MCP 1.0</span>
+                <span class="badge badge-green">Production Ready</span>
+                <span class="badge badge-orange">Enterprise Grade</span>
             </p>
-            <a href="https://github.com/DigitalEnergyR/DigitalEnergy.io" class="btn btn-primary">Explore Our Work</a>
         </div>
-    </section>
 
-    <footer id="contact">
-        <div class="container">
-            <p>&copy; 2025 DigitalEnergy.io. All rights reserved.</p>
-            <p>Connect with us on <a href="https://github.com/DigitalEnergyR">GitHub</a></p>
+        <div class="architecture-section">
+            <h2>System Architecture</h2>
+            <div class="mermaid-container">
+                <pre class="mermaid">flowchart TD
+    %% Clients / Consumers
+    subgraph Clients[Clients & Agent Runtimes]
+        IDE[IDE Assistants<br/>(Claude Desktop, Copilot, Continue, Cline)]
+        Notebooks[Jupyter / VS Code]
+        Chat[OpenWebUI / Internal Chat]
+        Orchestrators[n8n / Airflow / Dagster]
+        BI[Power BI / Grafana]
+        Agents[LangChain / LangGraph / CrewAI / SK]
+    end
+
+    %% UI & Auth
+    subgraph UI_and_Auth[UI & Access Control]
+        AdminUI[Admin UI]
+        Auth[Auth: JWT + Basic + OIDC]
+        Policy[OPA Policies<br/>(PII/XSS Filters, RBAC)]
+    end
+
+    %% Gateway Core
+    subgraph Core[Gateway Core]
+        Registry[MCP Registry<br/>(Tools · Prompts · Resources)]
+        Proto[Protocol Conversion<br/>(JSON-RPC, HTTP, WS, SSE, stdio)]
+        Fed[Federation Manager<br/>(Auto-discovery, Failover, Namespacing)]
+        Rate[Rate Limiting / QoS]
+        Obs[Observability<br/>(Prometheus, Phoenix traces)]
+        Health[Healthchecks]
+    end
+
+    %% External Systems (Oil & Gas)
+    subgraph OGSys[Enterprise & Field Systems]
+        subgraph OT[OT / Field]
+            SCADA[SCADA/PLC via<br/>OPC UA · MQTT · Ignition]
+            EFM[EFM / Flow Computers<br/>(ROCs, OMNI, Daniels)]
+            Hist[Historians<br/>(PI System, Canary)]
+            Edge[Edge Gateways<br/>(Kepware, HiveMQ, AWS IoT)]
+        end
+        subgraph IT[IT / Enterprise]
+            ERP[SAP S/4HANA / JDE]
+            Maint[Maximo / ServiceNow]
+            PA[Production Accounting<br/>(ProdView, Avocet, FLOWCAL)]
+            LIMS[LIMS / Lab]
+            Docs[Well/Facility DBs<br/>(WellView, OpenWells, Geo)]
+        end
+        subgraph Data[Cloud & Data]
+            Lake[Data Lake/Lakehouse<br/>(S3, ADLS, Delta)]
+            Stream[Streams<br/>(Kafka, Kinesis, Pulsar)]
+            ML[Model Serving<br/>(SageMaker, Bedrock, vLLM)]
+            Market[Market/Reg Data<br/>(EIA, AER DDS, CER, ISO)]
+        end
+    end
+
+    %% Flows
+    Clients -->|JSON-RPC / WS / SSE / stdio| Proto
+    AdminUI --> Registry
+    Auth --> Core
+    Policy --> Core
+
+    Core --> OT
+    Core --> IT
+    Core --> Data</pre>
+            </div>
         </div>
-    </footer>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <div class="core-features">
+            <div class="feature-card">
+                <h3><span class="icon">🔧</span> Agentic Core</h3>
+                <p>Unified gateway exposing Oil & Gas systems as MCP tools and resources</p>
+                <ul>
+                    <li>Production data retrieval and analysis</li>
+                    <li>Well performance monitoring</li>
+                    <li>Facility status and alarms</li>
+                    <li>Regulatory compliance reporting</li>
+                    <li>Maintenance work order creation</li>
+                </ul>
+            </div>
 
-        // Add scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
+            <div class="feature-card">
+                <h3><span class="icon">🔌</span> Protocol Support</h3>
+                <p>Native support for industrial and enterprise protocols</p>
+                <ul>
+                    <li>OPC UA for SCADA/PLC systems</li>
+                    <li>MQTT for IoT edge devices</li>
+                    <li>Modbus TCP/RTU for field devices</li>
+                    <li>REST/SOAP for enterprise APIs</li>
+                    <li>SQL for database integration</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <h3><span class="icon">🛡️</span> Security & Compliance</h3>
+                <p>Enterprise-grade security for critical infrastructure</p>
+                <ul>
+                    <li>Role-based access control (RBAC)</li>
+                    <li>PII/sensitive data filtering</li>
+                    <li>Audit logging and traceability</li>
+                    <li>ISA/IEC 62443 compliance ready</li>
+                    <li>Air-gapped deployment options</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="deployment-table">
+            <h2>Deployment Options</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Deployment Type</th>
+                        <th>Use Case</th>
+                        <th>Infrastructure</th>
+                        <th>Security Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cloud Native</strong></td>
+                        <td>Multi-tenant SaaS, development</td>
+                        <td>Kubernetes, AWS/Azure/GCP</td>
+                        <td>Standard cloud security</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hybrid Edge</strong></td>
+                        <td>Field operations with cloud backup</td>
+                        <td>Edge servers + cloud</td>
+                        <td>DMZ with strict egress</td>
+                    </tr>
+                    <tr>
+                        <td><strong>On-Premise</strong></td>
+                        <td>Critical OT systems</td>
+                        <td>Private datacenter</td>
+                        <td>Air-gapped available</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Embedded</strong></td>
+                        <td>Remote wellsites, offshore</td>
+                        <td>Industrial PC, edge gateway</td>
+                        <td>Isolated network segments</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="feature-card">
+            <h3>Quick Start</h3>
+            <div class="code-block">
+# Install via Docker
+docker pull digitalenergy/mcp-gateway:latest
+docker run -d -p 8080:8080 digitalenergy/mcp-gateway
+
+# Or using Docker Compose
+curl -O https://digitalenergy.github.io/docker-compose.yml
+docker-compose up -d
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 DigitalEnergy.io | <a href="https://github.com/DigitalEnergy">GitHub</a> | <a href="https://github.com/DigitalEnergy/mcp-gateway/blob/main/LICENSE">MIT License</a></p>
+        </div>
+    </div>
 </body>
 </html>
